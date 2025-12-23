@@ -149,7 +149,7 @@ const onKey = (btn) => {
 
 .keypad {
   position: fixed;
-  bottom: 1rem;
+  bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
