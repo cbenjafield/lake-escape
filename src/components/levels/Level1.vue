@@ -233,7 +233,7 @@ const onKey = (btn) => {
 
 .maps {
   position: fixed;
-  top: 2rem;
+  top: 0rem;
   width: 100vw;
   height: auto;
 }
