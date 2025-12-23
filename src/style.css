@@ -1,79 +1,117 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --colour-red: #9f1239;
+    --colour-light-red: #f43f5e;
+    --colour-green: #047857;
+    --colour-light-green: #34d399;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+@font-face {
+    font-family: "Fell";
+    src: url("./assets/fellfrenchcanon.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+* {
+    font-family: "Fell", serif;
+    box-sizing: border-box;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    appearance: none;
 }
 
-.card {
-  padding: 2em;
+button:focus {
+    outline: none;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.continue-button {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    line-height: 130%;
+    padding: 0.5rem 1rem;
+    appearance: none;
+    border: 3px solid #000;
+    background: #fff;
+    position: relative;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.continue-button:focus {
+    outline: none;
+}
+
+.continue-button:focus {
+    box-shadow: 0 0 0 5px green;
+}
+
+/*.shadowed-text {
+    text-shadow:
+        -2px -2px 0 #fff,  0 -2px 0 #fff,  2px -2px 0 #fff,
+        -2px  0   0 #fff,  2px  0   0 #fff,
+        -2px  2px 0 #fff,  0  2px 0 #fff,  2px  2px 0 #fff;
+}*/
+
+.shadowed-text {
+    color: #fff;
+}
+
+.bg-image {
+    position: fixed;
+    inset: 0;
+}
+
+.bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.walls {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wall {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.direction {
+    position: absolute;
+    bottom: 2rem;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    z-index: 50;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        display: inline-flex;
+    }
+}
+
+.direction.right {
+    right: 0.5rem;
+}
+
+.direction.left {
+    left: 0.5rem;
+}
+
+p {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.2rem;
 }
