@@ -1,11 +1,11 @@
 <template>
   <div class="intro">
     <div class="bg-image">
-      <img src="../assets/intro-bg.jpg" width="1200" height="800" alt="pen drawing of Borrowdale" />
+      <img :src="introBgImage" width="1200" height="800" alt="pen drawing of Borrowdale" />
     </div>
 
     <div class="title">
-      <img src="../assets/title.png" width="500" height="387" alt="title: Storm in the Lakes" />
+      <img :src="titleImage" width="500" height="387" alt="title: Storm in the Lakes" />
     </div>
 
     <div class="text shadowed-text">
@@ -23,7 +23,11 @@
 
 <script setup>
 import { useGameStore } from '../stores/game.js'
+import { ASSETS } from '../assets/assetUrls.js'
 const game = useGameStore()
+
+const introBgImage = ASSETS.introBg
+const titleImage = ASSETS.title
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
   <div class="bg-image">
-    <img src="../../assets/slate-shelter.jpg" width="735" height="1241" alt="Slate shelter at the foot of Castle Crag" v-show="step === 1 || step === 2" loading="eager" />
-    <img src="../../assets/slate-wall.jpg" width="735" height="1241" alt="Slate wall background" v-show="step === 3 || step === 4" loading="eager" />
+    <img :src="slateShelter" width="735" height="1241" alt="Slate shelter at the foot of Castle Crag" v-show="step === 1 || step === 2" loading="eager" />
+    <img :src="slateWall" width="735" height="1241" alt="Slate wall background" v-show="step === 3 || step === 4" loading="eager" />
   </div>
 
   <div class="level" v-if="step === 1 || step === 2">
@@ -27,7 +27,7 @@
       <div class="text shadowed-text">
         <p>The box has a combination lock on it.</p>
       </div>
-      <img src="../../assets/supply-box.png" width="696" height="430" alt="supply box with combination lock" />
+      <img :src="supplyBox" width="696" height="430" alt="supply box with combination lock" />
 
       <div class="combo-wrapper">
         <div class="combo" :class="error ? 'error' : ''">
@@ -66,12 +66,12 @@
     </div>
 
     <div class="wall wall-2" v-show="wall === 2">
-      <img src="../../assets/slate-wall-photo.png" width="600" height="442" alt="photo of slate pile down to the river" />
+      <img :src="slateWallPhoto" width="600" class="slate-wall-photo" height="442" alt="photo of slate pile down to the river" />
     </div>
 
     <div class="wall wall-3" v-show="wall === 3">
-      <img src="../../assets/anotequals1.png" class="anot1" width="600" height="619" alt="A != 1" />
-      <img src="../../assets/chalkboard.png" class="chalkboard" width="600" height="682" alt="The end is the beginning CBA" />
+      <img :src="aNotEquals1" class="anot1" width="600" height="619" alt="A != 1" />
+      <img :src="chalkboard" class="chalkboard" width="600" height="682" alt="The end is the beginning CBA" />
     </div>
 
     <button type="button" class="direction left" @click="directionLeft">
@@ -96,7 +96,7 @@
       </button>
     </div>
 
-    <img src="../../assets/torch.png" width="500" height="811" alt="torch" class="torch" />
+    <img :src="torch" width="500" height="811" alt="torch" class="torch" />
   </div>
 </template>
 
@@ -104,6 +104,15 @@
 import { useGameStore } from '../../stores/game.js'
 import { computed, ref } from 'vue'
 import { LEVEL_ANSWERS } from '../../answers.js'
+import { ASSETS } from '../../assets/assetUrls.js'
+
+const slateWall = ASSETS.slateWall
+const slateShelter = ASSETS.slateShelter
+const supplyBox = ASSETS.supplyBox
+const chalkboard = ASSETS.chalkboard
+const aNotEquals1 = ASSETS.aNotEquals1
+const slateWallPhoto = ASSETS.slateWallPhoto
+const torch = ASSETS.torch
 
 const game = useGameStore()
 
@@ -249,6 +258,7 @@ function submit() {
   img {
     width: 100%;
     height: auto;
+    max-width: 800px;
   }
 }
 
@@ -270,6 +280,7 @@ function submit() {
     width: 90%;
     height: auto;
     z-index: 1;
+    max-width: 500px;
   }
 }
 

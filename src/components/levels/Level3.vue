@@ -1,8 +1,8 @@
 <template>
   <div class="bg-image">
-    <img src="../../assets/coniston.jpg" width="735" height="1241" class="coniston" alt="Coniston" v-if="step === 1 || step === 2" />
-    <img src="../../assets/wood-bg.jpg" width="600" height="900" class="" alt="wooden wall" v-if="step === 3" />
-    <img src="../../assets/coniston-sun.jpg" width="817" height="1407" class="" alt="coniston sun" v-if="step === 4" />
+    <img :src="coniston" width="735" height="1241" class="coniston" alt="Coniston" v-if="step === 1 || step === 2" />
+    <img :src="woodBg" width="600" height="900" class="" alt="wooden wall" v-if="step === 3" />
+    <img :src="conistonSun" width="817" height="1407" class="" alt="coniston sun" v-if="step === 4" />
   </div>
 
   <div class="level" v-if="step === 1 || step === 2 || step === 4">
@@ -64,18 +64,18 @@
     </div>
 
     <div class="wall wall-2" v-if="wall === 2">
-      <img src="../../assets/plaque.png" width="1158" height="514" class="plaque" alt="Year Plaque" />
-      <img src="../../assets/coniston-sailing.png" width="966" height="1200" class="sailing" alt="Sailing" />
+      <img :src="plaque" width="1158" height="514" class="plaque" alt="Year Plaque" />
+      <img :src="conistonSailing" width="966" height="1200" class="sailing" alt="Sailing" />
     </div>
 
     <div class="wall wall-3" v-if="wall === 3">
-      <img src="../../assets/coniston-newspaper.png" width="948" height="1320" class="newspaper" alt="Newspaper article" />
-      <img src="../../assets/bluebird-herring.png" width="1024" height="1379" class="newspaper-herring" alt="Newspaper article" />
+      <img :src="conistonNewspaper" width="948" height="1320" class="newspaper" alt="Newspaper article" />
+      <img :src="bluebirdHerring" width="1024" height="1379" class="newspaper-herring" alt="Newspaper article" />
     </div>
 
     <div class="wall wall-4" v-if="wall === 4">
-      <img src="../../assets/calendar.png" width="942" height="726" class="calendar" alt="Calendar" />
-      <img src="../../assets/bluebird-cafe.png" width="966" height="1200" class="bluebird-cafe" alt="Bluebird Cafe" />
+      <img :src="calendar" width="942" height="726" class="calendar" alt="Calendar" />
+      <img :src="bluebirdCafe" width="966" height="1200" class="bluebird-cafe" alt="Bluebird Cafe" />
     </div>
 
     <button type="button" class="direction left" @click="directionLeft">
@@ -90,13 +90,23 @@
     </button>
   </div>
 
-
 </template>
 
 <script setup>
 import { useGameStore } from '../../stores/game.js'
 import { computed, ref, watch } from 'vue'
 import { LEVEL_ANSWERS } from '../../answers.js'
+import { ASSETS } from '../../assets/assetUrls.js'
+
+const coniston = ASSETS.coniston
+const woodBg = ASSETS.woodBg
+const conistonSun = ASSETS.conistonSun
+const plaque = ASSETS.plaque
+const conistonSailing = ASSETS.conistonSailing
+const bluebirdCafe = ASSETS.bluebirdCafe
+const bluebirdHerring = ASSETS.bluebirdHerring
+const conistonNewspaper = ASSETS.conistonNewspaper
+const calendar = ASSETS.calendar
 
 const game = useGameStore()
 
@@ -301,5 +311,9 @@ watch(code, (newCode) => {
   transform: rotate(-10deg);
   width: 100%;
   height: auto;
+}
+
+.wall-2 img, .wall-3 img, .wall-4 img {
+  max-width: 500px;
 }
 </style>

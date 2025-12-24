@@ -1,0 +1,26 @@
+export const ASSETS = {
+    introBg: new URL('./intro-bg.jpg', import.meta.url).href,
+    title: new URL('./title.png', import.meta.url).href,
+    completed: new URL('./completed.jpg', import.meta.url).href,
+    cabin: new URL('./cabin.jpg', import.meta.url).href,
+    woodBg: new URL('./wood-bg.jpg', import.meta.url).href,
+    cabinInterior: new URL('./cabin-interior.jpg', import.meta.url).href,
+    maps: new URL('./maps.png', import.meta.url).href,
+    slateShelter: new URL('./slate-shelter.jpg', import.meta.url).href,
+    slateWall: new URL('./slate-wall.jpg', import.meta.url).href,
+    supplyBox: new URL('./supply-box.png', import.meta.url).href,
+    slateWallPhoto: new URL('./slate-wall-photo.png', import.meta.url).href,
+    aNotEquals1: new URL('./anotequals1.png', import.meta.url).href,
+    chalkboard: new URL('./chalkboard.png', import.meta.url).href,
+    torch: new URL('./torch.png', import.meta.url).href,
+    coniston: new URL('./coniston.jpg', import.meta.url).href,
+    conistonSun: new URL('./coniston-sun.jpg', import.meta.url).href,
+    plaque: new URL('./plaque.png', import.meta.url).href,
+    conistonSailing: new URL('./coniston-sailing.png', import.meta.url).href,
+    conistonNewspaper: new URL('./coniston-newspaper.png', import.meta.url).href,
+    bluebirdHerring: new URL('./bluebird-herring.png', import.meta.url).href,
+    calendar: new URL('./calendar.png', import.meta.url).href,
+    bluebirdCafe: new URL('./bluebird-cafe.png', import.meta.url).href,
+}
+
+export const PRELOAD_URLS = Object.values(ASSETS)

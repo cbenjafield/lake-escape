@@ -1,11 +1,11 @@
 <template>
   <div class="bg-image">
-    <img src="../../assets/cabin.jpg" class="cabin" alt="log cabin under stormy sky" width="851" height="1342" v-show="step < 3" />
-    <img src="../../assets/wood-bg.jpg" class="wood" alt="wooden background texture" width="600" height="900" v-show="step === 3" loading="eager" />
-    <img src="../../assets/cabin-interior.jpg" class="cabin-interior" alt="cabin interior" width="827" height="945" v-show="step === 4" loading="eager" />
+    <img :src="cabinImage" class="cabin" alt="log cabin under stormy sky" width="851" height="1342" v-show="step < 3" />
+    <img :src="woodBgImage" class="wood" alt="wooden background texture" width="600" height="900" v-show="step === 3" loading="eager" />
+    <img :src="cabinInteriorImage" class="cabin-interior" alt="cabin interior" width="827" height="945" v-show="step === 4" loading="eager" />
   </div>
 
-  <img src="../../assets/maps.png" class="maps" width="700" height="903" v-if="step === 3" alt="maps of Helvellyn and Skiddaw" />
+  <img :src="mapsImage" class="maps" width="700" height="903" v-if="step === 3" alt="maps of Helvellyn and Skiddaw" />
 
   <div class="level">
     <div class="text shadowed-text">
@@ -56,6 +56,12 @@
 import { computed, ref } from 'vue'
 import { LEVEL_ANSWERS } from '../../answers.js'
 import { useGameStore } from '../../stores/game.js'
+import { ASSETS } from '../../assets/assetUrls.js'
+
+const cabinImage = ASSETS.cabin
+const woodBgImage = ASSETS.woodBg
+const cabinInteriorImage = ASSETS.cabinInterior
+const mapsImage = ASSETS.maps
 
 const game = useGameStore()
 
@@ -236,5 +242,11 @@ const onKey = (btn) => {
   top: 0rem;
   width: 100vw;
   height: auto;
+}
+
+@media (min-width: 500px) {
+  .keypad {
+    max-width: 400px;
+  }
 }
 </style>

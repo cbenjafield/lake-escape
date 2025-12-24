@@ -1,6 +1,6 @@
 <template>
   <div class="bg-image">
-    <img src="../assets/completed.jpg" class="baxter" alt="baxter" width="1536" height="1024" />
+    <img :src="completedImage" class="baxter" alt="baxter" width="1536" height="1024" />
   </div>
   <div class="text">
     <div class="shadowed-text">
@@ -36,6 +36,9 @@
 
 <script setup>
 import { useGameStore } from '../stores/game.js'
+import { ASSETS } from '../assets/assetUrls.js'
+
+const completedImage = ASSETS.completed
 
 const game = useGameStore()
 
